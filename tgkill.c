@@ -50,7 +50,9 @@ main(int argc, char *argv[])
 		tid = atoi(argv[3]);
 	}
 
+#if defined(DEBUG)
 	printf("DEBUG: Killing thread %d of thread group %d with signal %d\n", tid, tgid, sig);
+#endif
 
 	return syscall(SYS_tgkill, tgid, tid, sig);
 }
